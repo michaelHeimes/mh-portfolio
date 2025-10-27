@@ -1,5 +1,6 @@
-@import "foundation-sites/scss/vendor/normalize"; // ✅ correct path
-@import "foundation-sites/scss/foundation"; // ✅
+@import "foundation-settings";
+@import "vendor/normalize"; 
+@import "foundation";
 
 // Global styles
 @include foundation-global-styles;
@@ -57,4 +58,4 @@
 // @include foundation-prototype-classes;
 
 // Import Motion-UI from vendor files
-@import "motion-ui";
+// @import "motion-ui";

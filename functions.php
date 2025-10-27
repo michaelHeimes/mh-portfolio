@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	define( '_S_VERSION', '1.1.0' );
 }
 
 /**
@@ -176,14 +176,14 @@ add_action( 'wp_enqueue_scripts', 'trailhead_scripts' );
  * Enqueue Google Fonts.
  */
 wp_enqueue_style(
-	 'pmi-google-fonts',
-	 'https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Roboto:ital@0;1&display=swap',
+	 'trailhead-google-fonts',
+	 'https://fonts.googleapis.com/css2?family=Outfit:wght@500&family=Work+Sans&display=swap',
 	 array(),
 	 null
  );
  
  function google_font_loader_tag_filter( $html, $handle ) {
-	 if ( $handle === 'pmi-google-fonts' ) {
+	 if ( $handle === 'trailhead-google-fonts' ) {
 		 $rel_preconnect = "rel='stylesheet preconnect'";
 		 return str_replace(
 			 "rel='stylesheet'",

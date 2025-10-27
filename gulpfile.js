@@ -73,17 +73,14 @@ function stylesTheme() {
  * Vendor SCSS (slow build)
  */
 function stylesVendor() {
-  return gulp.src('source/scss/vendor/vendor.scss')
-	.pipe(sourcemaps.init())
-	.pipe(gulpSass({ includePaths: ['node_modules'] }).on('error', gulpSass.logError))
-	.pipe(postcss([autoprefixer()]))
-	.pipe(rename('vendor.css'))
-	.pipe(gulp.dest('source/scss/vendor'))
-	.pipe(cleanCSS())
-	.pipe(rename('vendor.min.css'))
-	.pipe(sourcemaps.write('.'))
-	.pipe(gulp.dest('source/scss/vendor'));
-}
+   return gulp.src('source/scss/vendor/vendor.scss')
+     .pipe(sourcemaps.init())
+     .pipe(gulpSass({ includePaths: ['node_modules', 'node_modules/foundation-sites/scss'] }).on('error', gulpSass.logError))
+     .pipe(postcss([autoprefixer()]))
+     .pipe(rename('_vendor-import.scss')) // ✅ a Sass partial
+     .pipe(gulp.dest('source/scss/vendor')) // ✅ NO minifying here
+     .pipe(browserSync.stream());
+ }
 
 /**
  * JavaScript Task with versioned filename
@@ -132,16 +129,39 @@ function serve(done) {
  * Watch Files
  */
 function watchFiles() {
-  gulp.watch(['source/scss/**/*.scss', '!source/scss/vendor/**/*.scss'], stylesTheme);
-  gulp.watch('source/scss/vendor/**/*.scss', stylesVendor);
-  gulp.watch(paths.js.watch, scripts);
-  gulp.watch(paths.php).on('change', browserSync.reload);
-}
+   // Watch all theme SCSS except vendor files
+   gulp.watch(
+     [
+       'source/scss/**/*.scss',
+       '!source/scss/vendor/**/*',
+       '!source/scss/foundation-settings.scss'
+     ],
+     stylesTheme
+   );
+ 
+   // Watch only vendor partials that are NOT the generated file
+   gulp.watch(
+     [
+       'source/scss/vendor/**/_*.scss',
+       'source/scss/vendor/vendor.scss',
+       '!source/scss/vendor/_vendor-import.scss'
+     ],
+     gulp.series(stylesVendor, stylesTheme)
+   );
+ }
+
 
 /**
  * Build Task
  */
-const build = gulp.series(cleanDist, gulp.parallel(stylesTheme, stylesVendor, scripts), manifest);
+const build = gulp.series(
+     cleanDist,
+     stylesVendor, // ensures Foundation mixins compiled first
+     stylesTheme,
+     scripts,
+     manifest
+ );
+
 const dev = gulp.series(build, watchFiles);
 
 // Export tasks

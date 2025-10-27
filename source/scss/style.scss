@@ -1,9 +1,11 @@
 @charset "UTF-8";
 
-//@import "variables";
+@import "variables";
 
 // 1. Your overrides before Foundation's settings (so they take effect)
-@import "foundation-settings";
+@import "vendor/foundation-settings";
+
+@import "vendor/_vendor-import";
 
 // Spacing Variables
 $smallGutter: map-get($grid-margin-gutters, "small");
@@ -12,7 +14,6 @@ $mediumGutter: map-get($grid-margin-gutters, "medium");
 @import "mixins";
 @import "variables";
 
-@import "vendor/vendor.min";
 
 /*--------------------------------------------------------------
 # Custom Styles

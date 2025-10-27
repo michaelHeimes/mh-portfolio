@@ -18,7 +18,9 @@ $fields = get_fields();
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				
 					<header class="entry-header home-banner text-center">
-
+						
+						<h1>White-label WordPress development by Michael Heimes</h1>
+<button>button</button>
 					</header><!-- .entry-header -->
 				
 					<section class="entry-content" itemprop="text">

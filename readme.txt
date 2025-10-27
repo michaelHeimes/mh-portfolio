@@ -43,7 +43,12 @@ Trailhead includes support for WooCommerce and for Infinite Scroll in Jetpack.
 
 # Trailhead Theme Build System
 
-This build system is designed for the **Trailhead WordPress Theme**, using **Foundation 6.9.0**, **Sass**, and **ES6 modules** compiled via **Browserify + Babel**. It handles SCSS compilation, JavaScript bundling, live reload, and version bumping.
+This build system is designed for the Trailhead WordPress Theme, using Foundation 6.9.0, Sass, and ES6 modules compiled via Browserify + Babel. It handles:
+	•	SCSS compilation: separates vendor (slow, includes Foundation mixins) and theme (fast, main styles) builds
+	•	JavaScript bundling: Browserify + Babel with source maps
+	•	Live reload: via BrowserSync
+	•	Versioning: outputs versioned .css and .js files and generates manifest.json
+	•	Optimized watch tasks: theme SCSS builds fast; vendor partial changes rebuild vendor first, then theme
 
 ---
 
@@ -60,64 +65,65 @@ This build system is designed for the **Trailhead WordPress Theme**, using **Fou
   
   source/
   ├─ scss/
-  │  ├─ style.scss         # Main theme SCSS (fast compile)
+  │  ├─ style.scss          # Main theme SCSS (fast compile)
   │  ├─ vendor/
-  │  │  └─ vendor.scss     # Vendor SCSS (slow compile, run manually)
+  │  │  ├─ vendor.scss      # Vendor SCSS (slow compile, includes foundation-settings)
+  │  │  └─ _vendor-import.scss # Generated partial imported by style.scss
+  │  └─ foundation-settings.scss # Foundation settings overrides (moved into vendor folder)
   ├─ js/
-  │  └─ app.js             # Theme JS entry point
+  │  └─ app.js              # Theme JS entry point
   dist/
-  ├─ css/                  # Compiled CSS output
-  ├─ js/                   # Compiled JS output
+  ├─ css/                   # Compiled CSS output
+  ├─ js/                    # Compiled JS output
   
   
   # Gulp Tasks - Trailhead Theme Build System
   
   | Task Name           | Description                                                                 |
-  |--------------------|-----------------------------------------------------------------------------|
-  | `gulp build`        | Cleans `dist/`, compiles theme SCSS, vendor SCSS, bundles JS, bumps version |
+  |---------------------|-----------------------------------------------------------------------------|
+  | `gulp build`        | Cleans dist/, compiles vendor SCSS, theme SCSS, bundles JS, generates manifest.json |
   | `gulp`              | Default task: runs `build`, then watches files with BrowserSync live reload |
   | `gulp stylesTheme`  | Compiles theme SCSS (fast build) with autoprefixing and minification        |
-  | `gulp stylesVendor` | Compiles vendor SCSS (slow build) with autoprefixing and minification      |
+  | `gulp stylesVendor` | Compiles vendor SCSS (slow build, generates _vendor-import.scss)     |
   | `gulp scripts`      | Bundles JS using Browserify + Babel; outputs `app.js` and `app.min.js`     |
-  | `gulp manifest`      | Generates `manifest.json` with versioned filenames.					     |
-  | `gulp clean`        | Deletes the `dist/` folder                                                  |
-  | `gulp watch`        | Watches SCSS, JS, and PHP files and triggers live reload (BrowserSync)     |
+  | `gulp clean`        | Deletes the dist/ folder                                               |
+  | `gulp watch`        | Watches SCSS, JS, and PHP files, triggers live reload; vendor partials trigger stylesVendor first    |
 
 
-					   ┌────────────┐
-					   │  clean     │
-					   │ (dist/)    │
-					   └─────┬──────┘
-							 │
-			 ┌───────────────┴────────────────┐
-			 │                                │
-	 ┌───────────────┐                ┌───────────────┐
-	 │ stylesTheme   │                │ stylesVendor  │
-	 │ (fast SCSS)   │                │ (slow SCSS)   │
-	 └───────────────┘                └───────────────┘
-			 │                                │
-			 └───────────────┬────────────────┘
-							 │
-					   ┌───────────────┐
-					   │   scripts     │
-					   │ (JS bundling) │
-					   └───────────────┘
-							 │
-					   ┌───────────────┐
-					   │   manifest   │
-					   └───────────────┘
-							 │
-					   ┌───────────────┐
-					   │   build       │
-					   │ (runs all)    │
-					   └─────┬─────────┘
-							 │
-					   ┌───────────────┐
-					   │   default     │
-					   │ (build + watch)│
-					   └─────┬─────────┘
-							 │
+					 ┌────────────┐
+					 │  clean     │
+					 │ (dist/)    │
+					 └─────┬──────┘
+						   │
+		   ┌───────────────┴────────────────┐
+		   │                                │
+   ┌───────────────┐                ┌───────────────┐
+   │ stylesTheme   │                │ stylesVendor  │
+   │ (fast SCSS)   │                │ (slow SCSS, generates _vendor-import.scss) │
+   └───────────────┘                └───────────────┘
+		   │                                │
+		   └───────────────┬────────────────┘
+						   │
 					 ┌───────────────┐
-					 │    watch      │
-					 │ (live reload) │
+					 │   scripts     │
+					 │ (JS bundling) │
 					 └───────────────┘
+						   │
+					 ┌───────────────┐
+					 │ manifest.json │
+					 └───────────────┘
+						   │
+					 ┌───────────────┐
+					 │   build       │
+					 │ (runs all)    │
+					 └─────┬─────────┘
+						   │
+					 ┌───────────────┐
+					 │   default     │
+					 │ (build + watch)│
+					 └─────┬─────────┘
+						   │
+				   ┌───────────────┐
+				   │    watch      │
+				   │ (live reload) │
+				   └───────────────┘
