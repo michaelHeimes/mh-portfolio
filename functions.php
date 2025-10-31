@@ -177,7 +177,7 @@ add_action( 'wp_enqueue_scripts', 'trailhead_scripts' );
  */
 wp_enqueue_style(
 	 'trailhead-google-fonts',
-	 'https://fonts.googleapis.com/css2?family=Outfit:wght@500&family=Work+Sans&display=swap',
+	 'https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=Work+Sans:wght@400;600&display=swap',
 	 array(),
 	 null
  );

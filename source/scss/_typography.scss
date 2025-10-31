@@ -1,0 +1,21 @@
+p,
+.p,
+ul,
+ol {
+	font-size: clamp(1rem, 0.979rem + 0.089vw, 1.063rem);
+	&.p-2 {
+		font-size: clamp(1rem, 0.917rem + 0.356vw, 1.25rem);	
+	}
+}
+.p-2 {
+	p,
+	.p,
+	ul,
+	ol {
+		font-size: clamp(1rem, 0.917rem + 0.356vw, 1.25rem);	
+	}
+}
+h1,
+.h1 {
+	font-size: clamp(2.188rem, 1.875rem + 1.333vw, 3.125rem);
+}

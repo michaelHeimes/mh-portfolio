@@ -1,9 +1,9 @@
 @charset "UTF-8";
 
-@import "variables";
-
 // 1. Your overrides before Foundation's settings (so they take effect)
 @import "vendor/foundation-settings";
+
+@import "foundation";
 
 @import "vendor/_vendor-import";
 
@@ -19,6 +19,9 @@ $mediumGutter: map-get($grid-margin-gutters, "medium");
 # Custom Styles
 --------------------------------------------------------------*/
 @import "global";
+@import "helpers";
 @import "typography";
 @import "header";
 @import "footer";
+
+@import "_pages/home";

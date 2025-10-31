@@ -46,8 +46,8 @@
 
 // Layout components
 @include foundation-off-canvas;
-//@include foundation-reveal;
-//@include foundation-sticky;
+@include foundation-reveal;
+@include foundation-sticky;
 //@include foundation-title-bar;
 @include foundation-top-bar;
 

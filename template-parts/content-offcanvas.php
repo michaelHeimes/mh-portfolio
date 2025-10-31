@@ -11,12 +11,13 @@
 	<div class="inner">
 	
 		<?php trailhead_off_canvas_nav(); ?>
-				
+	
 	</div>
 
 	<?php if ( is_active_sidebar( 'offcanvas' ) ) : ?>
 
 		<?php dynamic_sidebar( 'offcanvas' ); ?>
+		
 
 	<?php endif; ?>
 

@@ -49,7 +49,7 @@ import 'foundation-sites/js/foundation.offcanvas.js';
 // import 'foundation-sites/js/foundation.orbit.js';
 
 // Modals
-// import 'foundation-sites/js/foundation.reveal.js';
+import 'foundation-sites/js/foundation.reveal.js';
 
 // Form UI element
 // import 'foundation-sites/js/foundation.slider.js';
@@ -58,7 +58,7 @@ import 'foundation-sites/js/foundation.offcanvas.js';
 import 'foundation-sites/js/foundation.smoothScroll.js';
 
 // Sticky Elements
-// import 'foundation-sites/js/foundation.sticky.js';
+import 'foundation-sites/js/foundation.sticky.js';
 
 // On/Off UI Switching
 // import 'foundation-sites/js/foundation.toggler.js';
