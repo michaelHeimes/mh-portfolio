@@ -88,7 +88,7 @@ import fixedNavHack from './modules/fixed-nav-hack.js';
     emptyParentLinks();
     fixedNavHack();
     // displayOnLoad();
-    // scrollToAnchor();
+    scrollToAnchor();
     // mobileTakeoverNav(); // Uncomment if used
   };
 

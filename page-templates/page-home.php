@@ -19,85 +19,196 @@ $fields = get_fields();
 				
 					<header class="entry-header home-banner">
 						<div class="grid-container">
-						<div class="grid-x grid-padding-x align-middle">
-							<div class="cell small-12 tablet-3">
-								<div class="img-wrap">
-								<img src="<?=get_template_directory_uri();?>/dist/images/banner-img-2.jpg">
+							<div class="inner">
+								<div class="grid-x grid-padding-x align-middle">
+									<div class="cell small-12 tablet-3">
+										<div class="img-wrap position-relative">
+											<img src="<?=get_template_directory_uri();?>/assets/images/banner-img-2.jpg">
+											<div class="mask"></div>
+										</div>
+									</div>
+									<div class="cell small-12 tablet-9">
+										<h1>Web / WordPress Development<br> <span class="h3 text-right">by Michael Heimes</span></h1>
+									</div>
 								</div>
 							</div>
-							<div class="cell small-12 tablet-9">
-								<h1>Web / WordPress Development<br> by Michael Heimes</h1>
-							</div>
-						</div>
 						</div>
 					</header><!-- .entry-header -->
 				
-					<section class="entry-content" itemprop="text">
+					<section class="entry-content intro-menu" itemprop="text">
 						<div class="grid-container">
 							<div class="grid-x grid-padding-x">
 								<div class="cell small-12 tablet-7">
-								<h2>Hello!</h2>
-								<div class="p-2">
-								<p>My name is Michael Heimes. I’m a Freelance Senior Front-end Developer based in West Reading, PA (USA).</p>
-								<p>For over a decade I’ve been helping clients with bespoke solutions tailored to their unique needs.</p>
-								<p>I specialize in building custom WordPress themes building pixel-perfect reproductions of the UI design with the functionality the client requires. I work in both project-based and retainer / fractional roles as the sole developer resource, part of a team of developers, and taking on overflow for clients with in-house developers.</p>
+									<div class="hello">
+										<h2>Hello!</h2>
+										<div class="p-2">
+											<p>My name is Michael Heimes. I’m a Freelance Senior Front-end Developer based in West Reading, PA (USA).</p>
+											<p>For over a decade I’ve been helping clients with bespoke solutions tailored to their unique needs.</p>
+											<p>I specialize in building custom WordPress themes building pixel-perfect reproductions of the UI design with the functionality the client requires. I work in both project-based and retainer / fractional roles as the sole developer resource, part of a team of developers, and taking on overflow for clients with in-house developers.</p>
+										</div>
+									</div>
+									<div class="pride-points position-relative">
+										<div class="bg bg-white"></div>
+										<p><strong>I pride myself in:</strong></p>
+										<ul>
+											<li>
+												<a href="#">
+													my technical proficiency
+													<svg width="16" heigh="16" xmlns="http://www.w3.org/2000/svg" viewBox="64 64 512 512"><title>More Info</title><path d="M320 112c114.9 0 208 93.1 208 208s-93.1 208-208 208-208-93.1-208-208 93.1-208 208-208m0 464c141.4 0 256-114.6 256-256S461.4 64 320 64 64 178.6 64 320s114.6 256 256 256m-40-176c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24h-8v-88c0-13.3-10.7-24-24-24h-48c-13.3 0-24 10.7-24 24s10.7 24 24 24h24v64zm40-144c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32"/></svg>
+												</a>
+											</li>
+											<li>my varied and diverse experience in and out of the industry</li>
+											<li>building intuitive, empathetic CMS admins that make content management effortless</li>
+											<li>my attention to detail both in replicating designs and strategic execution</li>
+											<li>my “design eye” and ability to design &amp; build based on existing themes and branding</li>
+											<li>being reliable by meeting deadlines and expectations</li>
+											<li>my ability to communicate with both the technical and non-technical</li>
+											<li>working quickly and autonomously</li>
+											<li>providing maximum value to my clients</li>
+										</ul>
+										<p>
+											<a href="#">
+											more about me...
+												<svg width="16" heigh="16" xmlns="http://www.w3.org/2000/svg" viewBox="64 64 512 512"><title>More Info</title><path d="M320 112c114.9 0 208 93.1 208 208s-93.1 208-208 208-208-93.1-208-208 93.1-208 208-208m0 464c141.4 0 256-114.6 256-256S461.4 64 320 64 64 178.6 64 320s114.6 256 256 256m-40-176c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24h-8v-88c0-13.3-10.7-24-24-24h-48c-13.3 0-24 10.7-24 24s10.7 24 24 24h24v64zm40-144c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32" fill="#B33E00"/></svg>
+											</a>
+										</p>
+									</div>
 								</div>
-								<p><strong>I pride myself in:</strong></p>
-								<ul>
-								<li>
-									<a href="#">
-										my technical proficiency
-										<svg width="16" heigh="16" xmlns="http://www.w3.org/2000/svg" viewBox="64 64 512 512"><title>More Info</title><path d="M320 112c114.9 0 208 93.1 208 208s-93.1 208-208 208-208-93.1-208-208 93.1-208 208-208m0 464c141.4 0 256-114.6 256-256S461.4 64 320 64 64 178.6 64 320s114.6 256 256 256m-40-176c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24h-8v-88c0-13.3-10.7-24-24-24h-48c-13.3 0-24 10.7-24 24s10.7 24 24 24h24v64zm40-144c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32"/></svg>
-									</a>
-								</li>
-								<li>my varied and diverse experience in and out of the industry</li>
-								<li>building intuitive, empathetic CMS admins that make content management effortless</li>
-								<li>my attention to detail both in replicating designs and strategic execution</li>
-								<li>my “design eye” and ability to design &amp; build based on existing themes and branding</li>
-								<li>being reliable by meeting deadlines and expectations</li>
-								<li>my ability to communicate with both the technical and non-technical</li>
-								<li>working quickly and autonomously</li>
-								<li>providing maximum value to my clients</li>
-								</ul>
-																</div>
 								<div class="cell small-12 tablet-5 p-2">
-									<h2>Service Menu</h2>
-									<ul>
-										<li>
-											<a href="#custom-wordpress-themes">Custom WordPress Themes</a>
-											<ul>
-												<li>ACF
-													<ul>
-														<li>Custom Templates</li>
-														<li>Custom Flexible Content Modules</li>
-														<li>Custom Blocks</li>
-													</ul>
-												</li>
-												<li>Elementor</li>
-											</ul>
-										</li>
-										<li>
-											<a href="#modifying-existing-websites">Modifying Existing websites</a>
-										</li>
-										<li>
-											<a href="#wordpress-maintenance">WordPress Maintenance</a>
-										</li>
-										<li>
-											<a href="#web-performance-optimization">Performance Optimization</a>
-										</li>
-										<li>
-											<a href="#accessibility-compliance">Accessibility Compliance</a>
-										</li>
-										<li>
-											<a href="#bug-squashing">Bug squashing</a>
-										</li>
-										<li>
-											<a href="#static-websites-emails">Custom static HTML Websites and Emails</a>
-										</li>
-										<li>
-											<a href="#web-design">Small-to-medium scale Web Design</a>
-										</li>
-									</ul>
+									<div class="menu-wrap bg-green position-relative">
+										<div class="morse morse-top">
+											
+											<div class="word grid-x" aria-label="You">
+												<span class="show-for-sr">
+													You
+												</span>
+												<div class="letter grid-x" aria-label="Y">
+													<span class="dash"></span>
+													<span class="dot"></span>
+													<span class="dash"></span>
+													<span class="dash"></span>
+												</div>
+												<div class="letter grid-x" aria-label="o">
+													<span class="dash"></span>
+													<span class="dash"></span>
+													<span class="dash"></span>
+												</div>
+												<div class="letter grid-x" aria-label="u">
+													<span class="dot"></span>
+													<span class="dot"></span>
+													<span class="dash"></span>
+												</div>
+											</div>
+											
+											<div class="word vertical grid-x flex-dir-column" aria-label="should">
+												<span class="show-for-sr">
+													Should
+												</span>
+												<div class="letter vertical grid-x flex-dir-column" aria-label="s">
+													<span class="dot"></span>
+													<span class="dot"></span>
+													<span class="dot"></span>
+												</div>
+												<div class="letter vertical grid-x flex-dir-column" aria-label="h">
+													<span class="dot"></span>
+													<span class="dot"></span>
+													<span class="dot"></span>
+													<span class="dot"></span>
+												</div>
+												<div class="letter vertical grid-x flex-dir-column" aria-label="o">
+													<span class="dash"></span>
+													<span class="dash"></span>
+													<span class="dash"></span>
+												</div>
+												<div class="letter vertical grid-x flex-dir-column" aria-label="u">
+													<span class="dot"></span>
+													<span class="dot"></span>
+													<span class="dash"></span>
+												</div>
+												<div class="letter vertical grid-x flex-dir-column" aria-label="l">
+													<span class="dot"></span>
+													<span class="dash"></span>
+													<span class="dot"></span>
+													<span class="dot"></span>
+												</div>
+												<div class="letter vertical grid-x flex-dir-column" aria-label="d">
+													<span class="dash"></span>
+													<span class="dot"></span>
+													<span class="dot"></span>
+												</div>
+											</div>
+											<div class="word grid-x" aria-label="hire">
+												<span class="show-for-sr">
+													hire
+												</span>
+												<div class="letter grid-x" aria-label="h">
+													<span class="dot"></span>
+													<span class="dot"></span>
+													<span class="dot"></span>
+													<span class="dot"></span>
+												</div>
+												<div class="letter grid-x" aria-label="i">
+													<span class="dot"></span>
+													<span class="dot"></span>
+												</div>
+												<div class="letter grid-x" aria-label="r">
+													<span class="dot"></span>
+													<span class="dash"></span>
+													<span class="dot"></span>
+												</div>
+												<div class="letter grid-x" aria-label="e">
+													<span class="dot"></span>
+												</div>
+											</div>
+											<div class="word vertical grid-x flex-dir-column" aria-label="me!">
+												<span class="show-for-sr">
+													me!
+												</span>
+												<div class="letter vertical grid-x flex-dir-column" aria-label="m">
+													<span class="dash"></span>
+													<span class="dash"></span>
+												</div>
+												<div class="letter vertical grid-x flex-dir-column" aria-label="e">
+													<span class="dot"></span>
+												</div>
+												<div class="letter vertical grid-x flex-dir-column" aria-label="!">
+													<span class="dash"></span>
+													<span class="dot"></span>
+													<span class="dash"></span>
+													<span class="dot"></span>
+													<span class="dash"></span>
+													<span class="dash"></span>
+												</div>
+											</div>
+										</div>
+										<h2>Service Menu</h2>
+										<ul>
+											<li>
+												<a href="#custom-wordpress-themes">Custom WordPress Themes</a>
+											</li>
+											<li>
+												<a href="#modifying-existing-websites">Modifying Existing websites</a>
+											</li>
+											<li>
+												<a href="#wordpress-maintenance">WordPress Maintenance</a>
+											</li>
+											<li>
+												<a href="#web-performance-optimization">Performance Optimization</a>
+											</li>
+											<li>
+												<a href="#accessibility-compliance">Accessibility Compliance</a>
+											</li>
+											<li>
+												<a href="#bug-squashing">Bug squashing</a>
+											</li>
+											<li>
+												<a href="#static-websites-emails">Custom static HTML Websites and Emails</a>
+											</li>
+											<li>
+												<a href="#web-design">Small-to-medium scale Web Design</a>
+											</li>
+										</ul>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -105,7 +216,7 @@ $fields = get_fields();
 					
 					<?php get_template_part('template-parts/sections/section', 'tech-stack-logos');?>
 					
-					<section class="entry-content text-center" itemprop="text">
+					<section class="quick-stats entry-content text-center" itemprop="text">
 						<div class="grid-container">
 							<div class="grid-x grid-padding-x">
 								<div class="cell small-12">
@@ -114,45 +225,57 @@ $fields = get_fields();
 							</div>
 							<div class="grid-x grid-padding-x align-center small-up-2 medium-up-3 large-up-4">
 								<div class="cell">
-									<h3 class="h5">
-										Years of Experience
-									</h3>
-									<h3 class="h1"><b>10</b></h3>
+									<div class="bg-white">
+										<h3 class="h5">
+											Years of Experience
+										</h3>
+										<h3 class="h1"><b>10</b></h3>
+									</div>
 								</div>
 								<div class="cell">
-									<h3 class="h5">
-										Agency Clients<br> Served
-									</h3>
-									<h3 class="h1">
-										<a href="#">
-											<b>36</b>
-											<svg width="20" heigh="20" xmlns="http://www.w3.org/2000/svg" viewBox="64 64 512 512"><!--!Font Awesome Pro 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2025 Fonticons, Inc.--><path d="M320 112c114.9 0 208 93.1 208 208s-93.1 208-208 208-208-93.1-208-208 93.1-208 208-208m0 464c141.4 0 256-114.6 256-256S461.4 64 320 64 64 178.6 64 320s114.6 256 256 256m-40-176c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24h-8v-88c0-13.3-10.7-24-24-24h-48c-13.3 0-24 10.7-24 24s10.7 24 24 24h24v64zm40-144c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32"/></svg>
-										</a>
-									</h3>
+									<div class="bg-white">
+										<h3 class="h5">
+											Agency Clients<br> Served
+										</h3>
+										<h3 class="h1">
+											<a href="#">
+												<b>36</b>
+												<svg width="20" heigh="20" xmlns="http://www.w3.org/2000/svg" viewBox="64 64 512 512"><!--!Font Awesome Pro 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2025 Fonticons, Inc.--><path d="M320 112c114.9 0 208 93.1 208 208s-93.1 208-208 208-208-93.1-208-208 93.1-208 208-208m0 464c141.4 0 256-114.6 256-256S461.4 64 320 64 64 178.6 64 320s114.6 256 256 256m-40-176c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24h-8v-88c0-13.3-10.7-24-24-24h-48c-13.3 0-24 10.7-24 24s10.7 24 24 24h24v64zm40-144c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32"/></svg>
+											</a>
+										</h3>
+									</div>
 								</div>
 								<div class="cell">
-									<h3 class="h5">
-										Businesses and Organizations<br> Served
-									</h3>
-									<h3 class="h1"><b>25</b></h3>
+									<div class="bg-white">
+										<h3 class="h5">
+											Businesses and Organizations<br> Served
+										</h3>
+										<h3 class="h1"><b>25</b></h3>
+									</div>
 								</div>
 								<div class="cell">
-									<h3 class="h5">
-										Custom WordPress Themes
-									</h3>
-									<h3 class="h1"><b>128+</b></h3>
+									<div class="bg-white">
+										<h3 class="h5">
+											Custom WordPress Themes
+										</h3>
+										<h3 class="h1"><b>128+</b></h3>
+									</div>
 								</div>
 								<div class="cell">
-									<h3 class="h5">
-										Existing Websites I've Worked On
-									</h3>
-									<h3 class="h1"><b>177+</b></h3>
+									<div class="bg-white">
+										<h3 class="h5">
+											Existing Websites I've Worked On
+										</h3>
+										<h3 class="h1"><b>177+</b></h3>
+									</div>
 								</div>
 								<div class="cell">
-									<h3 class="h5">
-										Websites I've Designed & Built
-									</h3>
-									<h3 class="h1"><b>13</b></h3>
+									<div class="bg-white">
+										<h3 class="h5">
+											Websites I've Designed & Built
+										</h3>
+										<h3 class="h1"><b>13</b></h3>
+									</div>
 								</div>
 							</div>
 						</div>

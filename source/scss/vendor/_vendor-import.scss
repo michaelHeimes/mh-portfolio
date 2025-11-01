@@ -337,7 +337,7 @@ textarea[rows] {
 input:disabled, input[readonly],
 textarea:disabled,
 textarea[readonly] {
-  background-color: #e6e6e6;
+  background-color: #f9f9f9;
   cursor: not-allowed;
 }
 
@@ -434,7 +434,7 @@ label.middle {
 .input-group-label {
   padding: 0 1rem;
   border: 1px solid #cacaca;
-  background: #e6e6e6;
+  background: #f9f9f9;
   color: #0a0a0a;
   text-align: center;
   white-space: nowrap;
@@ -531,7 +531,7 @@ select:focus {
   transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
 }
 select:disabled {
-  background-color: #e6e6e6;
+  background-color: #f9f9f9;
   cursor: not-allowed;
 }
 select::-ms-expand {
@@ -644,42 +644,42 @@ h6 small, .h6 small {
 
 h1, .h1 {
   font-size: 1.5rem;
-  line-height: 1.4;
+  line-height: 1.1;
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
 
 h2, .h2 {
   font-size: 1.25rem;
-  line-height: 1.4;
+  line-height: 1.1;
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
 
 h3, .h3 {
   font-size: 1.1875rem;
-  line-height: 1.4;
+  line-height: 1.1;
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
 
 h4, .h4 {
   font-size: 1.125rem;
-  line-height: 1.4;
+  line-height: 1.1;
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
 
 h5, .h5 {
   font-size: 1.0625rem;
-  line-height: 1.4;
+  line-height: 1.1;
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
 
 h6, .h6 {
   font-size: 1rem;
-  line-height: 1.4;
+  line-height: 1.1;
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
@@ -706,12 +706,12 @@ h6, .h6 {
 }
 a {
   line-height: inherit;
-  color: #1779ba;
+  color: #B33E00;
   text-decoration: none;
   cursor: pointer;
 }
 a:hover, a:focus {
-  color: rgb(19.78, 104.06, 159.96);
+  color: rgb(153.94, 53.32, 0);
 }
 a img {
   border: 0;
@@ -785,7 +785,7 @@ figure {
 kbd {
   margin: 0;
   padding: 0.125rem 0.25rem 0;
-  background-color: #e6e6e6;
+  background-color: #f9f9f9;
   font-family: Consolas, "Liberation Mono", Courier, monospace;
   color: #0a0a0a;
 }
@@ -827,7 +827,7 @@ ul.no-bullet, ol.no-bullet {
 
 .code-inline, code {
   border: 1px solid #cacaca;
-  background-color: #e6e6e6;
+  background-color: #f9f9f9;
   font-family: Consolas, "Liberation Mono", Courier, monospace;
   font-weight: normal;
   color: #0a0a0a;
@@ -839,7 +839,7 @@ ul.no-bullet, ol.no-bullet {
 
 .code-block {
   border: 1px solid #cacaca;
-  background-color: #e6e6e6;
+  background-color: #f9f9f9;
   font-family: Consolas, "Liberation Mono", Courier, monospace;
   font-weight: normal;
   color: #0a0a0a;
@@ -3776,19 +3776,19 @@ ul.no-bullet, ol.no-bullet {
   margin-left: 0;
 }
 .button, .button.disabled, .button[disabled], .button.disabled:hover, .button[disabled]:hover, .button.disabled:focus, .button[disabled]:focus {
-  background-color: #1779ba;
+  background-color: #B33E00;
   color: #fff;
 }
 .button:hover, .button:focus {
-  background-color: rgb(19.55, 102.85, 158.1);
+  background-color: rgb(152.15, 52.7, 0);
   color: #fff;
 }
 .button.primary, .button.primary.disabled, .button.primary[disabled], .button.primary.disabled:hover, .button.primary[disabled]:hover, .button.primary.disabled:focus, .button.primary[disabled]:focus {
-  background-color: #1779ba;
+  background-color: #B33E00;
   color: #fff;
 }
 .button.primary:hover, .button.primary:focus {
-  background-color: rgb(18.4, 96.8, 148.8);
+  background-color: rgb(143.2, 49.6, 0);
   color: #fff;
 }
 .button.secondary, .button.secondary.disabled, .button.secondary[disabled], .button.secondary.disabled:hover, .button.secondary[disabled]:hover, .button.secondary.disabled:focus, .button.secondary[disabled]:focus {
@@ -3827,20 +3827,20 @@ ul.no-bullet, ol.no-bullet {
   background-color: transparent;
 }
 .button.hollow, .button.hollow.disabled, .button.hollow[disabled], .button.hollow.disabled:hover, .button.hollow[disabled]:hover, .button.hollow.disabled:focus, .button.hollow[disabled]:focus {
-  border: 1px solid #1779ba;
-  color: #1779ba;
+  border: 1px solid #B33E00;
+  color: #B33E00;
 }
 .button.hollow:hover, .button.hollow:focus {
-  border-color: rgb(11.5, 60.5, 93);
-  color: rgb(11.5, 60.5, 93);
+  border-color: rgb(89.5, 31, 0);
+  color: rgb(89.5, 31, 0);
 }
 .button.hollow.primary, .button.hollow.primary.disabled, .button.hollow.primary[disabled], .button.hollow.primary.disabled:hover, .button.hollow.primary[disabled]:hover, .button.hollow.primary.disabled:focus, .button.hollow.primary[disabled]:focus {
-  border: 1px solid #1779ba;
-  color: #1779ba;
+  border: 1px solid #B33E00;
+  color: #B33E00;
 }
 .button.hollow.primary:hover, .button.hollow.primary:focus {
-  border-color: rgb(11.5, 60.5, 93);
-  color: rgb(11.5, 60.5, 93);
+  border-color: rgb(89.5, 31, 0);
+  color: rgb(89.5, 31, 0);
 }
 .button.hollow.secondary, .button.hollow.secondary.disabled, .button.hollow.secondary[disabled], .button.hollow.secondary.disabled:hover, .button.hollow.secondary[disabled]:hover, .button.hollow.secondary.disabled:focus, .button.hollow.secondary[disabled]:focus {
   border: 1px solid #767676;
@@ -3879,16 +3879,16 @@ ul.no-bullet, ol.no-bullet {
   background-color: transparent;
 }
 .button.clear, .button.clear.disabled, .button.clear[disabled], .button.clear.disabled:hover, .button.clear[disabled]:hover, .button.clear.disabled:focus, .button.clear[disabled]:focus {
-  color: #1779ba;
+  color: #B33E00;
 }
 .button.clear:hover, .button.clear:focus {
-  color: rgb(11.5, 60.5, 93);
+  color: rgb(89.5, 31, 0);
 }
 .button.clear.primary, .button.clear.primary.disabled, .button.clear.primary[disabled], .button.clear.primary.disabled:hover, .button.clear.primary[disabled]:hover, .button.clear.primary.disabled:focus, .button.clear.primary[disabled]:focus {
-  color: #1779ba;
+  color: #B33E00;
 }
 .button.clear.primary:hover, .button.clear.primary:focus {
-  color: rgb(11.5, 60.5, 93);
+  color: rgb(89.5, 31, 0);
 }
 .button.clear.secondary, .button.clear.secondary.disabled, .button.clear.secondary[disabled], .button.clear.secondary.disabled:hover, .button.clear.secondary[disabled]:hover, .button.clear.secondary.disabled:focus, .button.clear.secondary[disabled]:focus {
   color: #767676;
@@ -3934,10 +3934,10 @@ ul.no-bullet, ol.no-bullet {
   margin-left: 1em;
 }
 .button.dropdown.hollow::after, .button.dropdown.clear::after {
-  border-top-color: #1779ba;
+  border-top-color: #B33E00;
 }
 .button.dropdown.hollow.primary::after, .button.dropdown.clear.primary::after {
-  border-top-color: #1779ba;
+  border-top-color: #B33E00;
 }
 .button.dropdown.hollow.secondary::after, .button.dropdown.clear.secondary::after {
   border-top-color: #767676;
@@ -4224,11 +4224,11 @@ table.hover:not(.unstriped) tr:nth-of-type(even):hover {
   text-align: center;
 }
 .menu .is-active > a {
-  background: #1779ba;
+  background: #B33E00;
   color: #fff;
 }
 .menu .active > a {
-  background: #1779ba;
+  background: #B33E00;
   color: #fff;
 }
 .menu.align-left {

@@ -19,3 +19,45 @@ h1,
 .h1 {
 	font-size: clamp(2.188rem, 1.875rem + 1.333vw, 3.125rem);
 }
+h2,
+.h2 {
+
+}
+.entry-content{
+	h2,
+	.h2,
+	h3,
+	.h3 {
+		text-decoration: underline;
+		text-decoration-color: $black;
+		text-underline-offset: .1em;
+		margin-bottom: .5em;
+	}
+	ul {
+		li {
+			padding-left: .3em;
+			margin-bottom: .5em;
+			list-style-image: url(../../assets/images/bullet-green.svg);
+		}
+	}
+	.bg-green {
+		color: $white;
+		a {
+			color: $white;
+			text-decoration-color: $color-lime-green;
+		}
+		ul {
+			li {
+				list-style-image: url(../../assets/images/bullet-lime-green.svg);
+			}
+		}
+		h2,
+		.h2,
+		h3,
+		.h3 {
+			text-decoration: underline;
+			text-decoration-color: $black;
+			text-underline-offset: .1em;
+		}
+	}
+}

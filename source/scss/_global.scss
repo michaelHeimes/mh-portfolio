@@ -6,6 +6,14 @@ Stylesheet: Global Stylesheet
 body {
 	background-color: $color-kahki;
 }
+
+.menu-wrap a,
+p a {
+	text-decoration: underline;
+	text-decoration-color: $color-orange;
+	text-underline-offset: .1em;
+}
+
 /*********************
 POSTS & CONTENT STYLES
 *********************/
