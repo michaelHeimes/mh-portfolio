@@ -168,7 +168,7 @@ function watchFiles() {
   gulp.watch(`${paths.js}/**/*.js`, gulp.series(scripts, manifest));
 
   // 4️⃣ Watch PHP
-  gulp.watch(['**/*.php']).on('change', browserSync.reload);
+  //gulp.watch(['**/*.php']).on('change', browserSync.reload);
 }
 
 // -------------------

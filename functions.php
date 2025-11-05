@@ -107,7 +107,7 @@ add_action( 'after_setup_theme', 'trailhead_setup' );
  * @global int $content_width
  */
 function trailhead_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'trailhead_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'trailhead_content_width', 1500 );
 }
 add_action( 'after_setup_theme', 'trailhead_content_width', 0 );
 

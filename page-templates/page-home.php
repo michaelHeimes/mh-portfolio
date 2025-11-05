@@ -40,6 +40,12 @@ $services_args = [
 ];
 $services = new WP_Query($services_args);
 
+$projects_args = [
+	'post_type' => 'project',
+	'posts_per_page' => -1,
+];
+$projects = new WP_Query($projects_args);
+
 ?>
 	<div class="content">
 		<div class="inner-content">
@@ -342,24 +348,83 @@ $services = new WP_Query($services_args);
 										<?php endif;?>
 									</div>
 								</div>
-								<?php if($slug == 'custom-wordpress-themes'):?>
-									<code>case studies?</code>
-								<?php endif;?>
 							</section>
 						<?php endwhile; wp_reset_postdata();?>
 					<?php endif;?>
 					
+					<?php if($slug == 'custom-wordpress-themes'):?>
+						<?php if ($projects->have_posts()):?>
+							<section class="case-studies entry-content bg-light-gray" itemprop="text">
+								<div class="grid-container">
+									<div class="grid-x grid-padding-x align-center align-middle">
+										<div class="left cell small-12 large-shrink">
+											<h2 class="h1">
+												Case<br>Studies
+											</h2>
+										</div>
+										<div class="sliders cell small-12 tablet-auto">
+											<div class="grid-x grid-margin-x align-center">
+												<div class="right cell small-12 tablet-auto">
+													<div class="modal-triggers bg-white">
+														<div class="swiper-wrapper">
+															<?php while ($projects->have_posts()) : $projects->the_post();
+																$slug = get_post_field('post_name', get_the_ID());
+															?>
+																<div class="swiper-slide">
+																	<button data-open="<?=$slug;?>">
+																	<?php the_post_thumbnail( 'large' );?>
+																		<div class="mask grid-x align-middle align-center">
+																			<img src="<?=get_template_directory_uri();?>/assets/images/info-icon-red-100.svg">
+																		</div>
+																	</button>
+																</div>
+																<div class="reveal" id="<?=$slug;?>" data-reveal>
+																<button class="close-button" data-close aria-label="Close modal" type="button">
+																	<span aria-hidden="true">&times;</span>
+																</button>
+																<h2><?php the_title();?></h2>
+																</div>
+															<?php endwhile; wp_reset_postdata();?>
+														</div>
+													</div>
+												</div>
+												<div class="center cell small-12 tablet-shrink bg-white">
+													<button type="button" class="swiper-btn swiper-btn-prev grid-x align-center">
+														<svg width="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="#667761" d="m75 0 25 50-25 50H0l25-50L0 0z"/></svg>
+													</button> 
+													<div class="thumbs">
+														<div class="swiper-wrapper">
+															<?php while ($projects->have_posts()) : $projects->the_post();
+																$slug = get_post_field('post_name', get_the_ID());
+															?>
+																<div class="swiper-slide">
+																	<div class="inner">
+																		<?php the_post_thumbnail( 'medium' );?>
+																	</div>
+																</div>
+															<?php endwhile; wp_reset_postdata();?>
+														</div>
+													</div>
+													<button type="button" class="swiper-btn swiper-btn-next grid-x align-center"><svg width="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="#667761" d="m75 0 25 50-25 50H0l25-50L0 0z"/></svg>
+													</button> 
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+						<?php endif;?>
+					<?php endif;?>
+					
 					<?php if ($services->have_posts()):?>
-						<div class="service-row grid-container">
+						<div class="services grid-container">
 							<div class="grid-x grid-padding-x">
 								<?php while ($services->have_posts()) : $services->the_post();
 									$slug = get_post_field('post_name', get_the_ID());
-									
 								?>
 									<section id="<?=$slug;?>" class="<?=$slug;?> entry-content cell small-12 tablet-6" itemprop="text">
-										<ul class="accordion" data-accordion data-allow-all-closed="true" data-deep-link="true" data-update-history="true" data-slide-speed="500">
+										<ul class="accordion h-100" data-accordion data-allow-all-closed="true" data-deep-link="true" data-update-history="true" data-slide-speed="500">
 											<li class="accordion-item" data-accordion-item>
-												<!-- Accordion tab title -->
 												<a href="#<?=$slug;?>" class="accordion-title">
 													<h2><?php the_title();?></h2>
 												</a>
@@ -375,153 +440,6 @@ $services = new WP_Query($services_args);
 							</div>
 						</div>
 					<?php endif;?>
-							
-
-					
-
-					
-					<div class="service-row grid-container">
-						<div class="grid-x grid-padding-x">
-							<div class="cell small-12 tablet-6">
-								<section id="modifying-existing-websites" class="service-accordion entry-content" itemprop="text">
-									<ul class="accordion" data-accordion data-allow-all-closed="true" data-deep-link="true" data-update-history="true" data-slide-speed="500">
-										<li class="accordion-item" data-accordion-item>
-											<!-- Accordion tab title -->
-											<a href="#modifying-existing-websites-info" class="accordion-title">
-												<h2>Modifying Existing websites</h2>
-											</a>
-											<div id="modifying-existing-websites-info" class="accordion-content" data-tab-content>
-													<div class="animation-container">
-														<p><b>No matter what the codebase or page builder I can help with:</b></p>
-														<ul>
-															<li>Building new custom pages</li>
-															<li>Designing (in the browser) and Building new custom pages & elements</li>
-															<li>Adding new custom elements</li>
-															<li>Changing layouts / structure</li>
-															<li>Handle rebranding</li>
-														</ul>
-													</div>
-											</div>
-										</li>
-									</ul>
-								</section>
-							</div>
-							<div class="cell small-12 tablet-6">
-								<section id="wordpress-maintenance-info" class="entry-content" itemprop="text">
-									<ul class="accordion" data-accordion data-allow-all-closed="true" data-deep-link="true" data-update-history="true" data-slide-speed="500">
-										<li class="accordion-item" data-accordion-item>
-											<!-- Accordion tab title -->
-											<a href="#wordpress-maintenance" class="accordion-title">
-												<h2>Wordpress Maintenance</h2>
-											</a>
-											<div id="wordpress-maintenance" class="accordion-content" data-tab-content>
-												<div class="animation-container">
-													<p><b>Keeping a WordPress site secure, fast, and fully functional includes Core, Theme, and Plugin Updates as well as:</b></p>
-													<ul>	
-														<li>Remediation for post-update errors</li>
-														<li>Replacing abandoned plugins</li>
-														<li>Replacing deprecated code</li>
-													</ul>
-												</div>
-											</div>
-										</li>
-									</ul>
-								</section>
-							</div>
-						</div>
-					</div>
-					
-					<div class="service-row grid-container">
-						<div class="grid-x grid-padding-x">
-							<div class="cell small-12 tablet-6">
-								<section id="wordpress-maintenance" class="entry-content" itemprop="text">
-									<h2>Wordpress Maintenance</h2>
-									<p><b>Keeping a WordPress site secure, fast, and fully functional includes Core, Theme, and Plugin Updates as well as:</b></p>
-									<ul>	
-										<li>Remediation for post-update errors</li>
-										<li>Replacing abandoned plugins</li>
-										<li>Replacing deprecated code</li>
-									</ul>
-								</section>
-							</div>
-							<div class="cell small-12 tablet-6">
-								<section id="web-performance-optimization" class="entry-content" itemprop="text">
-									<h2>Performance Optimization</h2>
-									<p><b>Improving a site’s speed, performance, and efficiency includes:</b></p>
-									<ul>
-										<li>Performance Auditing</li>
-										<li>Seed Optimization
-											<ul>
-												<li>Page Caching</li>
-												<li>Browser Caching / GZIP Compression</li>
-												<li>Code Minification</li>
-												<li>Object Caching</li>
-											</ul>
-										</li>
-									</ul>
-								</section>
-							</div>
-						</div>
-					</div>
-					
-					<div class="service-row grid-container">
-						<div class="grid-x grid-padding-x">
-							<div class="cell small-12 tablet-6">
-								<section id="accessibility-compliance" class="entry-content" itemprop="text">
-									<h2>Accessibility Compliance</h2>
-									<p><b>Ensuring that your website is usable by everyone, including people with disabilities who rely on assistive technologies like screen readers, keyboard navigation, and voice control requires:</b></p>
-									<ul>
-										<li>A comprehensive audit</li>
-										<li>Determining the level of compliance you require
-											<ul>
-												<li>WCAG 2.1 AA (or higher)</li>
-												<li>ADA Title III</li>
-											</ul>
-										</li>
-										<li>Keyboard Navigation</li>
-										<li>Screen Reader Compatibility</li>
-										<li>Color & Contrast</li>
-									</ul>
-								</section>
-							</div>
-							<div class="cell small-12 tablet-6">
-								<section id="bug-squashing" class="entry-content" itemprop="text">
-									<h2>Bug Squashing</h2>
-									<p><b>Technical issues that affect your website’s performance, functionality, or user experience can be the result of:</b></p>
-									<ul>
-										<li>Broken code</li>
-										<li>Deprecated code</li>
-										<li>Flaws discovered in UX approach</li>
-										<li>Browser-specific issues</li>
-									</ul>
-								</section>
-							</div>
-						</div>
-					</div>
-					
-					<div class="service-row grid-container">
-						<div class="grid-x grid-padding-x">
-							<div class="cell small-12 tablet-6">
-								<section id="static-websites-emails" class="entry-content" itemprop="text">
-									<h2>Static Websites & Emails</h2>
-									<p><b>Outside of the WordPress ecosystem I have built:</b></p>
-									<ul>
-										<li>Static HTML Websites</li>
-										<li>Custom Emails</li>
-										<li>Web apps built to be dropped into existing websites</li>
-										<li>Web apps for Touch Kiosks</li>
-										<li>Web apps for tablet-controlled sales presentations</li>
-									</ul>
-								</section>
-							</div>
-							<div class="cell small-12 tablet-6">
-								<section id="web-design" class="entry-content" itemprop="text">
-									<h2>Web Design</h2>
-									<p>Occasionally I'll take on small-to-medium scale Design/Build projects for businesses and organization. I use a "design  int he browser" approach by building prototypes as function websites which speeds up the design/development process while increasing value.</p>
-								</section>
-							</div>
-						</div>
-					</div>
 							
 					<footer class="article-footer">
 						 <?php wp_link_pages(); ?>

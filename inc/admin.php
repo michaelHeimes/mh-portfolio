@@ -67,7 +67,7 @@ add_filter('admin_footer_text', 'trailhead_custom_admin_footer');
 		
 		return $init_array;  
 	} 
-	add_filter( 'tiny_mce_before_init', 'add_styleselect_classes' ); 
+	// add_filter( 'tiny_mce_before_init', 'add_styleselect_classes' ); 
 
 
 	// add editor-style.css

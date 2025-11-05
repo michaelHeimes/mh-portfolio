@@ -37522,6 +37522,71 @@ function accordionHack() {
 
 /***/ }),
 
+/***/ "./source/js/modules/case-studies-swiper.js":
+/*!**************************************************!*\
+  !*** ./source/js/modules/case-studies-swiper.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ caseStudiesSwiper)
+/* harmony export */ });
+/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.mjs");
+/* harmony import */ var swiper_modules__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper/modules */ "./node_modules/swiper/modules/index.mjs");
+
+
+function caseStudiesSwiper() {
+  // Initialize the thumbnail slider
+  var sliderThumbs = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".case-studies .thumbs", {
+    modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_1__.FreeMode, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Navigation],
+    direction: "vertical",
+    slidesPerView: 3,
+    spaceBetween: 10,
+    navigation: {
+      nextEl: ".slider__next",
+      prevEl: ".slider__prev"
+    },
+    freeMode: true,
+    breakpoints: {
+      0: {
+        direction: "horizontal"
+      },
+      900: {
+        direction: "vertical"
+      }
+    }
+  });
+
+  // Initialize the main image slider
+  var sliderImages = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".case-studies .modal-triggers", {
+    modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Navigation, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Thumbs, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Mousewheel],
+    direction: "vertical",
+    slidesPerView: 1,
+    spaceBetween: 24,
+    //mousewheel: true,
+    navigation: {
+      nextEl: ".swiper-btn-next",
+      prevEl: ".swiper-btn-prev"
+    },
+    grabCursor: false,
+    thumbs: {
+      swiper: sliderThumbs
+    },
+    breakpoints: {
+      0: {
+        direction: "horizontal"
+      },
+      768: {
+        direction: "vertical"
+      }
+    }
+  });
+}
+
+/***/ }),
+
 /***/ "./source/js/modules/empty-parent-links.js":
 /*!*************************************************!*\
   !*** ./source/js/modules/empty-parent-links.js ***!
@@ -37793,6 +37858,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_accordion_hack_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./modules/accordion-hack.js */ "./source/js/modules/accordion-hack.js");
 /* harmony import */ var _modules_scroll_to_anchor_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./modules/scroll-to-anchor.js */ "./source/js/modules/scroll-to-anchor.js");
 /* harmony import */ var _modules_screenshot_ticker_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./modules/screenshot-ticker.js */ "./source/js/modules/screenshot-ticker.js");
+/* harmony import */ var _modules_case_studies_swiper_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./modules/case-studies-swiper.js */ "./source/js/modules/case-studies-swiper.js");
 // Core
 
 
@@ -37873,6 +37939,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 // import displayOnLoad from './modules/display-on-load.js';
 // import scrollToAnchor from './modules/scroll-to-anchor.js';
 // import mobileTakeoverNav from './modules/mobile-takeover-nav.js';
@@ -37888,6 +37955,7 @@ __webpack_require__.r(__webpack_exports__);
     (0,_modules_screenshot_ticker_js__WEBPACK_IMPORTED_MODULE_21__["default"])();
     // displayOnLoad();
     (0,_modules_scroll_to_anchor_js__WEBPACK_IMPORTED_MODULE_20__["default"])();
+    (0,_modules_case_studies_swiper_js__WEBPACK_IMPORTED_MODULE_22__["default"])();
     // mobileTakeoverNav(); // Uncomment if used
   };
   $(init);

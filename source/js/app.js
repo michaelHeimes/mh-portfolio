@@ -80,6 +80,7 @@ import fixedNavHack from './modules/fixed-nav-hack.js';
 import accordionHack from './modules/accordion-hack.js';
 import scrollToAnchor from './modules/scroll-to-anchor.js';
 import screenshotTicker from './modules/screenshot-ticker.js';
+import caseStudiesSwiper from './modules/case-studies-swiper.js';
 // import displayOnLoad from './modules/display-on-load.js';
 // import scrollToAnchor from './modules/scroll-to-anchor.js';
 // import mobileTakeoverNav from './modules/mobile-takeover-nav.js';
@@ -95,6 +96,7 @@ const init = () => {
     screenshotTicker();
     // displayOnLoad();
     scrollToAnchor();
+    caseStudiesSwiper();
     // mobileTakeoverNav(); // Uncomment if used
 };
 

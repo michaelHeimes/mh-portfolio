@@ -16,6 +16,11 @@ p a {
 
 .accordion {
 	margin-bottom: 0;
+	transition: background-color 0s ease;
+	&:has(>.is-active) {
+		background-color: $white;
+		transition: background-color .3s ease .4s;
+	}
 	.accordion-item {
 		transition: padding .3s ease;
 		.accordion-title {

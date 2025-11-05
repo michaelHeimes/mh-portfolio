@@ -2,6 +2,12 @@ header.site-header {
 	background-color: $color-green;
 	transition: transform .5s ease;
 	
+	&.sticky.is-anchored {
+		position: fixed;
+		z-index: 5;
+		width: 100%;
+	}
+	
 	#top-bar-menu {
 		
 		li.logo {
