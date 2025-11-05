@@ -11,6 +11,8 @@
 	<div class="inner">
 	
 		<?php trailhead_off_canvas_nav(); ?>
+		
+		<?=do_shortcode('[wpforms id="32" title="false"]');?>
 	
 	</div>
 

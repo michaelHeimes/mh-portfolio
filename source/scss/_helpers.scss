@@ -1,6 +1,9 @@
 .position-relative {
 	position: relative;
 }
+.color-black {
+	color: $black;
+}
 .bg-white {
 	background-color: $white;
 }
@@ -12,4 +15,7 @@
 }
 .bg-light-gray {
 	background-color: $light-gray;
+}
+.h-100 {
+	height: 100%;
 }

@@ -28,16 +28,23 @@ h2,
 	.h2,
 	h3,
 	.h3 {
-		text-decoration: underline;
-		text-decoration-color: $black;
-		text-underline-offset: .1em;
-		margin-bottom: .5em;
 	}
-	ul {
+	h2,
+	h3 {
+		&:not(.no-underline) {
+			text-decoration: underline;
+			text-decoration-color: $color-dark-kahki;
+			text-underline-offset: .1em;
+			text-decoration-thickness: .18em;
+			margin-bottom: .5em;	
+		}
+	}
+	ul:not(.accordion) {
 		li {
 			padding-left: .3em;
 			margin-bottom: .5em;
 			list-style-image: url(../../assets/images/bullet-green.svg);
+			line-height: 1.4;
 		}
 	}
 	.bg-green {
@@ -56,7 +63,7 @@ h2,
 		h3,
 		.h3 {
 			text-decoration: underline;
-			text-decoration-color: $black;
+			text-decoration-color: $color-dark-kahki;
 			text-underline-offset: .1em;
 		}
 	}

@@ -22,7 +22,7 @@ import 'foundation-sites/js/foundation.util.triggers.js';
 // import 'foundation-sites/js/foundation.tabs.js';
 
 // Accordion
-// import 'foundation-sites/js/foundation.accordion.js';
+import 'foundation-sites/js/foundation.accordion.js';
 // import 'foundation-sites/js/foundation.accordionMenu.js';
 // import 'foundation-sites/js/foundation.responsiveAccordionTabs.js';
 
@@ -55,7 +55,7 @@ import 'foundation-sites/js/foundation.reveal.js';
 // import 'foundation-sites/js/foundation.slider.js';
 
 // Anchor Link Scrolling
-import 'foundation-sites/js/foundation.smoothScroll.js';
+// import 'foundation-sites/js/foundation.smoothScroll.js';
 
 // Sticky Elements
 import 'foundation-sites/js/foundation.sticky.js';
@@ -66,8 +66,9 @@ import 'foundation-sites/js/foundation.sticky.js';
 // Tooltips
 // import 'foundation-sites/js/foundation.tooltip.js';
 
-// Swiper
-import 'swiper/swiper-bundle.min.js';
+
+import Swiper from 'swiper';
+import { Autoplay, FreeMode } from 'swiper/modules';
 
 import $ from 'jquery';
 import 'foundation-sites';
@@ -76,21 +77,26 @@ import 'foundation-sites';
 import foundationInit from './modules/foundation-init.js';
 import emptyParentLinks from './modules/empty-parent-links.js';
 import fixedNavHack from './modules/fixed-nav-hack.js';
+import accordionHack from './modules/accordion-hack.js';
+import scrollToAnchor from './modules/scroll-to-anchor.js';
+import screenshotTicker from './modules/screenshot-ticker.js';
 // import displayOnLoad from './modules/display-on-load.js';
 // import scrollToAnchor from './modules/scroll-to-anchor.js';
 // import mobileTakeoverNav from './modules/mobile-takeover-nav.js';
 
 (function($) {
-  'use strict';
+'use strict';
 
-  const init = () => {
+const init = () => {
     foundationInit();
     emptyParentLinks();
     fixedNavHack();
+    accordionHack();
+    screenshotTicker();
     // displayOnLoad();
     scrollToAnchor();
     // mobileTakeoverNav(); // Uncomment if used
-  };
+};
 
-  $(init);
+$(init);
 })(jQuery);

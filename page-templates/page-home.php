@@ -9,6 +9,37 @@
 
 get_header();
 $fields = get_fields();
+
+// Services
+$service_right_column = $fields['service_right_column'] ?? null;
+$featured_service = $fields['featured_service'] ?? null;
+
+$featured_services_args = [
+	'post_type' => 'service',
+	'posts_per_page' => -1,
+	'meta_query' => [
+		[
+			'key' => 'featured_service',
+			'value' => '1',
+			'compare' => '='
+		]
+	]
+];
+$featured_services = new WP_Query($featured_services_args);
+
+$services_args = [
+	'post_type' => 'service',
+	'posts_per_page' => -1,
+	'meta_query' => [
+		[
+			'key' => 'featured_service',
+			'value' => '1',
+			'compare' => '!='
+		]
+	]
+];
+$services = new WP_Query($services_args);
+
 ?>
 	<div class="content">
 		<div class="inner-content">
@@ -54,7 +85,7 @@ $fields = get_fields();
 											<li>
 												<a href="#">
 													my technical proficiency
-													<svg width="16" heigh="16" xmlns="http://www.w3.org/2000/svg" viewBox="64 64 512 512"><title>More Info</title><path d="M320 112c114.9 0 208 93.1 208 208s-93.1 208-208 208-208-93.1-208-208 93.1-208 208-208m0 464c141.4 0 256-114.6 256-256S461.4 64 320 64 64 178.6 64 320s114.6 256 256 256m-40-176c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24h-8v-88c0-13.3-10.7-24-24-24h-48c-13.3 0-24 10.7-24 24s10.7 24 24 24h24v64zm40-144c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32"/></svg>
+													<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="64 64 512 512"><title>More Info</title><path d="M320 112c114.9 0 208 93.1 208 208s-93.1 208-208 208-208-93.1-208-208 93.1-208 208-208m0 464c141.4 0 256-114.6 256-256S461.4 64 320 64 64 178.6 64 320s114.6 256 256 256m-40-176c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24h-8v-88c0-13.3-10.7-24-24-24h-48c-13.3 0-24 10.7-24 24s10.7 24 24 24h24v64zm40-144c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32"/></svg>
 												</a>
 											</li>
 											<li>my varied and diverse experience in and out of the industry</li>
@@ -69,7 +100,7 @@ $fields = get_fields();
 										<p>
 											<a href="#">
 											more about me...
-												<svg width="16" heigh="16" xmlns="http://www.w3.org/2000/svg" viewBox="64 64 512 512"><title>More Info</title><path d="M320 112c114.9 0 208 93.1 208 208s-93.1 208-208 208-208-93.1-208-208 93.1-208 208-208m0 464c141.4 0 256-114.6 256-256S461.4 64 320 64 64 178.6 64 320s114.6 256 256 256m-40-176c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24h-8v-88c0-13.3-10.7-24-24-24h-48c-13.3 0-24 10.7-24 24s10.7 24 24 24h24v64zm40-144c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32" fill="#B33E00"/></svg>
+												<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="64 64 512 512"><title>More Info</title><path d="M320 112c114.9 0 208 93.1 208 208s-93.1 208-208 208-208-93.1-208-208 93.1-208 208-208m0 464c141.4 0 256-114.6 256-256S461.4 64 320 64 64 178.6 64 320s114.6 256 256 256m-40-176c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24h-8v-88c0-13.3-10.7-24-24-24h-48c-13.3 0-24 10.7-24 24s10.7 24 24 24h24v64zm40-144c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32" fill="#B33E00"/></svg>
 											</a>
 										</p>
 									</div>
@@ -216,7 +247,7 @@ $fields = get_fields();
 					
 					<?php get_template_part('template-parts/sections/section', 'tech-stack-logos');?>
 					
-					<section class="quick-stats entry-content text-center" itemprop="text">
+					<section class="quick-stats bg-light-gray entry-content text-center" itemprop="text">
 						<div class="grid-container">
 							<div class="grid-x grid-padding-x">
 								<div class="cell small-12">
@@ -224,127 +255,183 @@ $fields = get_fields();
 								</div>
 							</div>
 							<div class="grid-x grid-padding-x align-center small-up-2 medium-up-3 large-up-4">
-								<div class="cell">
-									<div class="bg-white">
-										<h3 class="h5">
-											Years of Experience
+								<div class="cell stat-card">
+									<div class=" bg-white h-100 grid-x flex-dir-column align-justify">
+										<h3 class="h4 no-underline">
+											Years of <br>Experience
 										</h3>
-										<h3 class="h1"><b>10</b></h3>
+										<h3 class="h1 no-underline"><b>10</b></h3>
 									</div>
 								</div>
-								<div class="cell">
-									<div class="bg-white">
-										<h3 class="h5">
+								<div class="cell stat-card">
+									<a class="color-black bg-white h-100 grid-x flex-dir-column align-justify" href="#">
+										<h3 class="h4 no-underline">
 											Agency Clients<br> Served
 										</h3>
-										<h3 class="h1">
-											<a href="#">
+										<h3 class="h1 no-underline">
 												<b>36</b>
-												<svg width="20" heigh="20" xmlns="http://www.w3.org/2000/svg" viewBox="64 64 512 512"><!--!Font Awesome Pro 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2025 Fonticons, Inc.--><path d="M320 112c114.9 0 208 93.1 208 208s-93.1 208-208 208-208-93.1-208-208 93.1-208 208-208m0 464c141.4 0 256-114.6 256-256S461.4 64 320 64 64 178.6 64 320s114.6 256 256 256m-40-176c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24h-8v-88c0-13.3-10.7-24-24-24h-48c-13.3 0-24 10.7-24 24s10.7 24 24 24h24v64zm40-144c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32"/></svg>
-											</a>
+												<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="64 64 512 512"><title>More info</title><path d="M320 112c114.9 0 208 93.1 208 208s-93.1 208-208 208-208-93.1-208-208 93.1-208 208-208m0 464c141.4 0 256-114.6 256-256S461.4 64 320 64 64 178.6 64 320s114.6 256 256 256m-40-176c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24h-8v-88c0-13.3-10.7-24-24-24h-48c-13.3 0-24 10.7-24 24s10.7 24 24 24h24v64zm40-144c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32" fill="#B33E00"/></svg>
 										</h3>
-									</div>
+									</a>
 								</div>
-								<div class="cell">
-									<div class="bg-white">
-										<h3 class="h5">
+								<div class="cell stat-card">
+									<div class=" bg-white h-100 grid-x flex-dir-column align-justify">
+										<h3 class="h4 no-underline">
 											Businesses and Organizations<br> Served
 										</h3>
-										<h3 class="h1"><b>25</b></h3>
+										<h3 class="h1 no-underline"><b>25</b></h3>
 									</div>
 								</div>
-								<div class="cell">
-									<div class="bg-white">
-										<h3 class="h5">
+								<div class="cell stat-card">
+									<div class=" bg-white h-100 grid-x flex-dir-column align-justify">
+										<h3 class="h4 no-underline">
 											Custom WordPress Themes
 										</h3>
-										<h3 class="h1"><b>128+</b></h3>
+										<h3 class="h1 no-underline"><b>128+</b></h3>
 									</div>
 								</div>
-								<div class="cell">
-									<div class="bg-white">
-										<h3 class="h5">
+								<div class="cell stat-card">
+									<div class=" bg-white h-100 grid-x flex-dir-column align-justify">
+										<h3 class="h4 no-underline">
 											Existing Websites I've Worked On
 										</h3>
-										<h3 class="h1"><b>177+</b></h3>
+										<h3 class="h1 no-underline"><b>177+</b></h3>
 									</div>
 								</div>
-								<div class="cell">
-									<div class="bg-white">
-										<h3 class="h5">
-											Websites I've Designed & Built
+								<div class="cell stat-card">
+									<div class=" bg-white h-100 grid-x flex-dir-column align-justify">
+										<h3 class="h4 no-underline">
+											Websites I've Both Designed & Built
 										</h3>
-										<h3 class="h1"><b>13</b></h3>
+										<h3 class="h1 no-underline"><b>13</b></h3>
 									</div>
 								</div>
 							</div>
 						</div>
 					</section>
 					
+					<div class="screenshot-tickers">
+						<?php get_template_part('template-parts/sections/section', 'ticker-slider');?>
+						<?php get_template_part('template-parts/sections/section', 'ticker-slider');?>
+						<?php get_template_part('template-parts/sections/section', 'ticker-slider');?>
+						<?php get_template_part('template-parts/sections/section', 'ticker-slider');?>
+					</div>
 					
-					<section id="custom-wordpress-themes" class="entry-content" itemprop="text">
-						
-						<code>autoscroll slider here with a mosaic of screenshots</code>
-						
-						<div class="grid-container">
+					<?php if ($featured_services->have_posts()):?>
+						<?php while ($featured_services->have_posts()) : $featured_services->the_post();
+							$slug = get_post_field('post_name', get_the_ID());
+							$service_right_column = get_field('service_right_column') ?? null;	
+							$col_classes = 'cell small-12';
+							if( $service_right_column ) {
+								$col_classes = 'cell small-12 tablet-6';	
+							}
+						?>
+							<section id="<?=$slug;?>" class="<?=$slug;?> entry-content" itemprop="text">
+								<div class="copy-wrap grid-container">
+									<div class="grid-x grid-padding-x">
+										<div class="cell small-12">
+											<h2 class="text-center">Custom Wordpress Themes</h2>
+										</div>
+										<div class="<?=$col_classes;?>">
+											<?php the_content();?>
+										</div>
+										<?php if($service_right_column):?>
+											<div class="<?=$col_classes;?>">
+												<?=wp_kses_post( $service_right_column );?>
+											</div>
+										<?php endif;?>
+									</div>
+								</div>
+								<?php if($slug == 'custom-wordpress-themes'):?>
+									<code>case studies?</code>
+								<?php endif;?>
+							</section>
+						<?php endwhile; wp_reset_postdata();?>
+					<?php endif;?>
+					
+					<?php if ($services->have_posts()):?>
+						<div class="service-row grid-container">
 							<div class="grid-x grid-padding-x">
-								<div class="cell small-12">
-									<h2 class="text-center">Custom Wordpress Themes</h2>
-								</div>
-								<div class="cell small-12 tablet-6">
-									<p><b>With over 128 Custom WordPress themes built,</b> I've integrated into dozens of workflows, tools, and project management systems & software. Through years of working in existign workflows and systems, I've developed my own for when one doesn't already exist.</p>
-									<p>My personal workflow includes Foundation UI Framework, Advanced Custom Fields, and vanilla Javascript. The goal of my workflow is to increase speed and productivity while reducing complexity for other developers that may pick up where I leave off.</p>
-								</div>
-								<div class="cell small-12 tablet-6">
-									<p><b>My approach to each project is the result of thorough discovery so that I may understand:</b>
-										<ul>
-											<li>Who will be managing the CMS content and what is their skill-level.</li>
-											<li>Determine any planned scaling to future-proof scalability.</li>
-											<li>
-												Determining the best approach with ACF: custom templates, custom flexible content module, custom blocks or any combination of options.
+								<?php while ($services->have_posts()) : $services->the_post();
+									$slug = get_post_field('post_name', get_the_ID());
+									
+								?>
+									<section id="<?=$slug;?>" class="<?=$slug;?> entry-content cell small-12 tablet-6" itemprop="text">
+										<ul class="accordion" data-accordion data-allow-all-closed="true" data-deep-link="true" data-update-history="true" data-slide-speed="500">
+											<li class="accordion-item" data-accordion-item>
+												<!-- Accordion tab title -->
+												<a href="#<?=$slug;?>" class="accordion-title">
+													<h2><?php the_title();?></h2>
+												</a>
+												<div id="<?=$slug;?>" class="accordion-content" data-tab-content>
+													<div class="animation-container">
+														<?php the_content();?>
+													</div>
+												</div>
 											</li>
-											<li>Finding the right balance of flexibility and locked-down structure and styles.</li>
-											<li>Accessibility Requirements</li>
 										</ul>
-									</p>
-								</div>
+									</section>
+								<?php endwhile; wp_reset_postdata();?>
 							</div>
 						</div>
-						
-						<code>case studies?</code>
-						
-					</section>
+					<?php endif;?>
+							
+
 					
-					<div class="grid-container">
+
+					
+					<div class="service-row grid-container">
 						<div class="grid-x grid-padding-x">
 							<div class="cell small-12 tablet-6">
-								<section id="modifying-existing-websites" class="entry-content" itemprop="text">
-									<h2>Modifying Existing websites</h2>
-									<p><b>No matter what the codebase or page builder I can help with:</b></p>
-									<ul>
-										<li>Building new custom pages</li>
-										<li>Designing (in the browser) and Building new custom pages & elements</li>
-										<li>Adding new custom elements</li>
-										<li>Changing layouts / structure</li>
-										<li>Handle rebranding</li>
+								<section id="modifying-existing-websites" class="service-accordion entry-content" itemprop="text">
+									<ul class="accordion" data-accordion data-allow-all-closed="true" data-deep-link="true" data-update-history="true" data-slide-speed="500">
+										<li class="accordion-item" data-accordion-item>
+											<!-- Accordion tab title -->
+											<a href="#modifying-existing-websites-info" class="accordion-title">
+												<h2>Modifying Existing websites</h2>
+											</a>
+											<div id="modifying-existing-websites-info" class="accordion-content" data-tab-content>
+													<div class="animation-container">
+														<p><b>No matter what the codebase or page builder I can help with:</b></p>
+														<ul>
+															<li>Building new custom pages</li>
+															<li>Designing (in the browser) and Building new custom pages & elements</li>
+															<li>Adding new custom elements</li>
+															<li>Changing layouts / structure</li>
+															<li>Handle rebranding</li>
+														</ul>
+													</div>
+											</div>
+										</li>
 									</ul>
 								</section>
 							</div>
 							<div class="cell small-12 tablet-6">
-								<section id="wordpress-maintenance" class="entry-content" itemprop="text">
-									<h2>Wordpress Maintenance</h2>
-									<p><b>Keeping a WordPress site secure, fast, and fully functional includes Core, Theme, and Plugin Updates as well as:</b></p>
-									<ul>	
-										<li>Remediation for post-update errors</li>
-										<li>Replacing abandoned plugins</li>
-										<li>Replacing deprecated code</li>
+								<section id="wordpress-maintenance-info" class="entry-content" itemprop="text">
+									<ul class="accordion" data-accordion data-allow-all-closed="true" data-deep-link="true" data-update-history="true" data-slide-speed="500">
+										<li class="accordion-item" data-accordion-item>
+											<!-- Accordion tab title -->
+											<a href="#wordpress-maintenance" class="accordion-title">
+												<h2>Wordpress Maintenance</h2>
+											</a>
+											<div id="wordpress-maintenance" class="accordion-content" data-tab-content>
+												<div class="animation-container">
+													<p><b>Keeping a WordPress site secure, fast, and fully functional includes Core, Theme, and Plugin Updates as well as:</b></p>
+													<ul>	
+														<li>Remediation for post-update errors</li>
+														<li>Replacing abandoned plugins</li>
+														<li>Replacing deprecated code</li>
+													</ul>
+												</div>
+											</div>
+										</li>
 									</ul>
 								</section>
 							</div>
 						</div>
 					</div>
 					
-					<div class="grid-container">
+					<div class="service-row grid-container">
 						<div class="grid-x grid-padding-x">
 							<div class="cell small-12 tablet-6">
 								<section id="wordpress-maintenance" class="entry-content" itemprop="text">
@@ -358,7 +445,7 @@ $fields = get_fields();
 								</section>
 							</div>
 							<div class="cell small-12 tablet-6">
-								<section id="web-performance-optimization">
+								<section id="web-performance-optimization" class="entry-content" itemprop="text">
 									<h2>Performance Optimization</h2>
 									<p><b>Improving a site’s speed, performance, and efficiency includes:</b></p>
 									<ul>
@@ -377,7 +464,7 @@ $fields = get_fields();
 						</div>
 					</div>
 					
-					<div class="grid-container">
+					<div class="service-row grid-container">
 						<div class="grid-x grid-padding-x">
 							<div class="cell small-12 tablet-6">
 								<section id="accessibility-compliance" class="entry-content" itemprop="text">
@@ -412,7 +499,7 @@ $fields = get_fields();
 						</div>
 					</div>
 					
-					<div class="grid-container">
+					<div class="service-row grid-container">
 						<div class="grid-x grid-padding-x">
 							<div class="cell small-12 tablet-6">
 								<section id="static-websites-emails" class="entry-content" itemprop="text">

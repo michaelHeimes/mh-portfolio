@@ -5,7 +5,8 @@
 		.inner {
 			border: 2px solid $color-green;
 			border-radius: 40px;
-			padding: 2rem;
+			padding: 4rem;
+			background-color: $white;
 		}
 		.img-wrap {
 			max-width: 335px;
@@ -30,11 +31,11 @@
 		}
 		h1 {
 			margin: 0;
-			max-width: 800px;
+			max-width: 750px;
 			> span {
 				display: block;
 				text-decoration: underline;
-				text-decoration-color: $color-orange;
+				text-decoration-color: $color-dark-kahki;
 				text-decoration-thickness: .1em; 
 				text-underline-offset: .1em;
 				padding-top: 2rem;
@@ -44,6 +45,7 @@
 	.intro-menu {
 		.menu-wrap {
 			padding: 6rem 4rem;
+			border-radius: 40px;
 			.word {
 				position: absolute;
 				opacity: .3;
@@ -116,6 +118,7 @@
 				}
 			}
 			> ul {
+				margin-bottom: 0;
 				> li {
 					&:not(:last-child) {
 						margin-bottom: 1rem;
@@ -126,7 +129,7 @@
 		}
 	}
 	.hello {
-		padding: 6rem 0 2rem;
+		padding: 4rem 0 3rem;
 	}
 	.pride-points {
 		padding: 4rem 0 4rem 10%;
@@ -140,7 +143,65 @@
 		}
 	}
 	.stack-logos {
-		padding-top: 3rem;
+		padding-top: 5.5rem;
 		padding-bottom: 3rem;
+	}
+	.quick-stats {
+		padding-top: 2rem;
+		padding-bottom: 4rem;
+		h2 {
+			margin-bottom: 4rem;
+		}
+		.stat-card {
+			margin-bottom: $smallGutter;
+			@include breakpoint(medium) {
+				margin-bottom: $mediumGutter;	
+			}
+			a.bg-white,
+			.bg-white {
+				border: 2px solid $color-dark-kahki;
+				border-radius: 10px;
+				padding: 2rem;
+				color: $black;
+				transition: color .3s ease;
+				h3.h1 {
+					margin: 0;
+				}
+				svg path {
+					transition: .3s ease;
+				}
+			}
+			a.bg-white {
+				&:hover,
+				&:focus {
+					color: $color-burnt-orange;	
+					svg path {
+						fill: $color-burnt-orange;
+					}
+				}
+			}
+		}
+	}
+	.screenshot-ticker {
+		.swiper-wrapper {
+			transition-timing-function: linear !important;
+		}
+	}
+	.custom-wordpress-themes {
+		margin-bottom: 5rem;
+		.copy-wrap {
+			padding-top: 5rem;
+		}
+		h2 {
+			margin-bottom: 3rem;
+		}
+	}
+	.service-row {
+		.cell {
+			margin-bottom: 5rem;
+		}
+	}
+	.service-accordion {
+
 	}
 }

@@ -14,6 +14,77 @@ p a {
 	text-underline-offset: .1em;
 }
 
+.accordion {
+	margin-bottom: 0;
+	.accordion-item {
+		transition: padding .3s ease;
+		.accordion-title {
+			display: inline-flex;
+			padding-right: 1rem;
+			transition: color .3s ease;
+			h2 {
+				margin: 0;
+			}
+			&:before {
+				font-size: 2rem;
+				top: 0;
+				margin: 0;
+				left: 100%;
+				display: block;
+				width: 20px;
+				height: 46px;
+				background-image: url(../../assets/images/info-icon-20.svg);
+				background-position: center;
+				background-size: contain;
+				background-repeat: no-repeat;
+				transition: background .25s ease;
+			}
+			&:not(.is-active):before {
+				content: '';
+			}
+			&:not(.is-active):hover:before,
+			&:not(.is-active):focus:before {
+				background-image: url(../../assets/images/info-icon-red-20.svg);
+			}
+			&:focus {
+				color: $black;
+			}
+		}
+		.accordion-content {
+			.animation-container {
+				opacity: 0;
+				transform: translateY(20px);
+				transition: padding .3s ease, opacity 0s ease 0s, transform 0s ease 0s;
+				&.animate-in {
+					opacity: 1;
+					transform: translateY(0);
+					transition: padding .3s ease, opacity .3s ease 0s, transform .3s ease 0s;
+				}
+			}
+		}
+		&.is-active {
+			background: $white;
+			padding: 2rem 2.5rem;
+			.accordion-title {
+				&:before {
+					color: $color-burnt-orange;
+					content: "–";
+					line-height: 1.5;
+					transform: translateY(1px);
+					background: none;
+				}
+				&:hover:before ,
+				&:focus:before {
+					background-image: none;
+					line-height: 1.5;
+				}
+			}
+		}
+		
+	}
+}
+
+
 /*********************
 POSTS & CONTENT STYLES
 *********************/
