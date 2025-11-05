@@ -16,7 +16,7 @@ function smartwp_remove_wp_block_library_css(){
 add_filter('use_block_editor_for_post_type', 'prefix_disable_gutenberg', 10, 2);
 function prefix_disable_gutenberg($current_status, $post_type)
 {
-    if ($post_type === 'page' || $post_type === 'service' ) return false;
+    if ($post_type === 'page' || $post_type === 'service' || $post_type === 'project' ) return false;
     return $current_status;
 }
 

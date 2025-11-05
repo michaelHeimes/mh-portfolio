@@ -46,7 +46,9 @@
 			<div>
 				<div class="reveal" id="contact-form-modal" data-reveal>
 					<button class="close-button" data-close aria-label="Close modal" type="button">
-						<span aria-hidden="true"><svg width="30" xmlns="http://www.w3.org/2000/svg" viewBox="64 64 512 512"><title>Close</title><path d="M320 112c114.9 0 208 93.1 208 208s-93.1 208-208 208-208-93.1-208-208 93.1-208 208-208m0 464c141.4 0 256-114.6 256-256S461.4 64 320 64 64 178.6 64 320s114.6 256 256 256m-89-345c-9.4 9.4-9.4 24.6 0 33.9l55 55-55 55c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l55-55 55 55c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-55-55 55-55c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-55 55-55-55c-9.4-9.4-24.6-9.4-33.9 0"/></svg></span>
+						<span aria-hidden="true">
+							<svg width="32" height="32" class="icon icon-close"><use href="#icon-close"></use></svg>
+						</span>
 					</button>
 					<?=do_shortcode('[wpforms id="32" title="false"]');?>
 				</div>

@@ -1,4 +1,13 @@
 @charset "UTF-8";
+:root {
+  --brm: 1;
+}
+
+@supports (corner-shape: squircle) {
+  :root {
+    --brm: 2;
+  }
+}
 /**
  * Foundation for Sites
  * Version 6.9.0
@@ -4875,7 +4884,7 @@ html.is-reveal-open body {
 }
 @media print, screen and (min-width: 40em) {
   .reveal {
-    width: 600px;
+    width: 1024px;
     max-width: 93.75rem;
   }
 }

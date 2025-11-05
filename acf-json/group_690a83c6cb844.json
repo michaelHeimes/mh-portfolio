@@ -1,6 +1,6 @@
 {
     "key": "group_690a83c6cb844",
-    "title": "Services",
+    "title": "CPT: Services",
     "fields": [
         {
             "key": "field_690a83c63c1ef",
@@ -64,5 +64,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1762303397
+    "modified": 1762356582
 }

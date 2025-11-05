@@ -91,7 +91,7 @@ $projects = new WP_Query($projects_args);
 											<li>
 												<a href="#">
 													my technical proficiency
-													<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="64 64 512 512"><title>More Info</title><path d="M320 112c114.9 0 208 93.1 208 208s-93.1 208-208 208-208-93.1-208-208 93.1-208 208-208m0 464c141.4 0 256-114.6 256-256S461.4 64 320 64 64 178.6 64 320s114.6 256 256 256m-40-176c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24h-8v-88c0-13.3-10.7-24-24-24h-48c-13.3 0-24 10.7-24 24s10.7 24 24 24h24v64zm40-144c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32"/></svg>
+													<svg width="16" height="16" class="icon icon-info"><use href="#icon-info"></use></svg>
 												</a>
 											</li>
 											<li>my varied and diverse experience in and out of the industry</li>
@@ -106,7 +106,7 @@ $projects = new WP_Query($projects_args);
 										<p>
 											<a href="#">
 											more about me...
-												<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="64 64 512 512"><title>More Info</title><path d="M320 112c114.9 0 208 93.1 208 208s-93.1 208-208 208-208-93.1-208-208 93.1-208 208-208m0 464c141.4 0 256-114.6 256-256S461.4 64 320 64 64 178.6 64 320s114.6 256 256 256m-40-176c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24h-8v-88c0-13.3-10.7-24-24-24h-48c-13.3 0-24 10.7-24 24s10.7 24 24 24h24v64zm40-144c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32" fill="#B33E00"/></svg>
+												<svg width="16" height="16" class="icon icon-info"><use href="#icon-info"></use></svg>
 											</a>
 										</p>
 									</div>
@@ -276,7 +276,7 @@ $projects = new WP_Query($projects_args);
 										</h3>
 										<h3 class="h1 no-underline">
 												<b>36</b>
-												<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="64 64 512 512"><title>More info</title><path d="M320 112c114.9 0 208 93.1 208 208s-93.1 208-208 208-208-93.1-208-208 93.1-208 208-208m0 464c141.4 0 256-114.6 256-256S461.4 64 320 64 64 178.6 64 320s114.6 256 256 256m-40-176c-13.3 0-24 10.7-24 24s10.7 24 24 24h80c13.3 0 24-10.7 24-24s-10.7-24-24-24h-8v-88c0-13.3-10.7-24-24-24h-48c-13.3 0-24 10.7-24 24s10.7 24 24 24h24v64zm40-144c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32" fill="#B33E00"/></svg>
+												<svg width="20" height="20" class="icon icon-info" style="fill:;"><use href="#icon-info"></use></svg>
 										</h3>
 									</a>
 								</div>
@@ -369,43 +369,104 @@ $projects = new WP_Query($projects_args);
 														<div class="swiper-wrapper">
 															<?php while ($projects->have_posts()) : $projects->the_post();
 																$slug = get_post_field('post_name', get_the_ID());
+																$meta = get_field('meta') ?? null;
+																$key_accomplishments = $meta['key_accomplishments'] ?? null;
+																$project_type = $meta['project_type'] ?? null;
+																$tech_stack = $meta['tech_stack'] ?? null;
+																$client = $meta['client'] ?? null;
+																$client_link = $meta['client_link'] ?? null;
+																$client_type = $meta['client_type'] ?? null;
+																$site_link = $meta['site_link'] ?? null;
 															?>
 																<div class="swiper-slide">
-																	<button data-open="<?=$slug;?>">
+																	<button data-open="<?=$slug;?>" aria-label="Opens modal for case study details of the project <?php the_title();?>">
 																	<?php the_post_thumbnail( 'large' );?>
 																		<div class="mask grid-x align-middle align-center">
 																			<img src="<?=get_template_directory_uri();?>/assets/images/info-icon-red-100.svg">
 																		</div>
 																	</button>
 																</div>
-																<div class="reveal" id="<?=$slug;?>" data-reveal>
-																<button class="close-button" data-close aria-label="Close modal" type="button">
-																	<span aria-hidden="true">&times;</span>
-																</button>
-																<h2><?php the_title();?></h2>
+																<div class="reveal entry-content" id="<?=$slug;?>" data-reveal data-deep-link="true" data-update-history="true">
+																	<div class="grid-x align-right">
+																		<button class="close-button" data-close aria-label="Close modal" type="button">
+																			<span aria-hidden="true">
+																				<svg width="32" height="32" class="icon icon-close"><use href="#icon-close"></use></svg>
+																			</span>
+																		</button>
+																	</div>
+																	<h2><?php the_title();?></h2>
+																	<div class="grid-x">
+																		<?php if($meta):?>
+																			<div class="cell small-12 medium-5 bg-green">
+																				<?php the_post_thumbnail( 'large' );?>
+																				<ul>
+																					<?php if($key_accomplishments):?>
+																						<li>
+																							<b>Key Accomplishments:</b>
+																							<?=wp_kses_post($key_accomplishments);?>
+																						</li>
+																					<?php endif;?> 
+																					<?php if($project_type):?>
+																						<li>
+																							<b>Project Type:</b>
+																							<?=wp_kses_post($project_type);?>
+																						</li>
+																					<?php endif;?> 
+																					<?php if($tech_stack):?>
+																						<li>
+																							<b>Tech Stack:</b>
+																							<?=wp_kses_post($tech_stack);?>
+																						</li>
+																					<?php endif;?> 
+																					<?php if($client):?>
+																						<li>
+																							<b>Client:</b>
+																							<?=wp_kses_post($client);?>
+																						</li>
+																					<?php endif;?> 
+																					<?php if($client_link):
+																						$link = $client_link;
+																						if( $link ): 
+																							$link_url = $link['url'];
+																							$link_title = $link['title'];
+																							$link_target = $link['target'] ? $link['target'] : '_self';	
+																					?>
+																						<li>
+																							<b>Client:</b>
+																							<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" rel="noopener noreferrer">
+																								<u><?php echo esc_html( $link_title ); ?></u>
+																							</a>
+																						</li>
+																					<?php endif; endif;?> 
+																				</ul>
+																			</div>
+																		<?php endif;?>
+																		<div class="cell small-12<?php if($meta):?> medium-7<?php endif;?>">
+																			<?php the_content();?>
+																		</div>
+																	</div>
 																</div>
 															<?php endwhile; wp_reset_postdata();?>
 														</div>
 													</div>
 												</div>
 												<div class="center cell small-12 tablet-shrink bg-white">
-													<button type="button" class="swiper-btn swiper-btn-prev grid-x align-center">
-														<svg width="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="#667761" d="m75 0 25 50-25 50H0l25-50L0 0z"/></svg>
+													<button type="button" class="swiper-btn swiper-btn-prev align-center" aria-label="Previous Slide">
+														<svg width="30" height="30" class="icon icon-mh-chev-right"><use href="#icon-mh-chev-right"></use></svg>
 													</button> 
 													<div class="thumbs">
 														<div class="swiper-wrapper">
 															<?php while ($projects->have_posts()) : $projects->the_post();
 																$slug = get_post_field('post_name', get_the_ID());
 															?>
-																<div class="swiper-slide">
-																	<div class="inner">
-																		<?php the_post_thumbnail( 'medium' );?>
-																	</div>
-																</div>
+																<button class="swiper-slide overflow-hidden" aria-label="Changed swiper slide to case study slide for <?php the_title();?>">
+																	<?php the_post_thumbnail( 'medium' );?>
+																</button>
 															<?php endwhile; wp_reset_postdata();?>
 														</div>
 													</div>
-													<button type="button" class="swiper-btn swiper-btn-next grid-x align-center"><svg width="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="#667761" d="m75 0 25 50-25 50H0l25-50L0 0z"/></svg>
+													<button type="button" class="swiper-btn swiper-btn-next align-center"aria-label="Next Slide">
+														<svg width="30" height="30" class="icon icon-mh-chev-right"><use href="#icon-mh-chev-right"></use></svg>
 													</button> 
 												</div>
 											</div>
@@ -418,25 +479,29 @@ $projects = new WP_Query($projects_args);
 					
 					<?php if ($services->have_posts()):?>
 						<div class="services grid-container">
-							<div class="grid-x grid-padding-x">
-								<?php while ($services->have_posts()) : $services->the_post();
-									$slug = get_post_field('post_name', get_the_ID());
-								?>
-									<section id="<?=$slug;?>" class="<?=$slug;?> entry-content cell small-12 tablet-6" itemprop="text">
-										<ul class="accordion h-100" data-accordion data-allow-all-closed="true" data-deep-link="true" data-update-history="true" data-slide-speed="500">
-											<li class="accordion-item" data-accordion-item>
-												<a href="#<?=$slug;?>" class="accordion-title">
-													<h2><?php the_title();?></h2>
-												</a>
-												<div id="<?=$slug;?>" class="accordion-content" data-tab-content>
-													<div class="animation-container">
-														<?php the_content();?>
-													</div>
-												</div>
-											</li>
-										</ul>
-									</section>
-								<?php endwhile; wp_reset_postdata();?>
+							<div class="grid-x grid-padding-x align-center">
+								<div class="cell small-12 large-11">
+									<div class="grid-x grid-padding-x">
+										<?php while ($services->have_posts()) : $services->the_post();
+											$slug = get_post_field('post_name', get_the_ID());
+										?>
+											<section id="<?=$slug;?>" class="<?=$slug;?> entry-content cell small-12 tablet-6" itemprop="text">
+												<ul class="accordion h-100" data-accordion data-allow-all-closed="true" data-deep-link="true" data-update-history="true" data-slide-speed="500">
+													<li class="accordion-item" data-accordion-item>
+															<a href="#<?=$slug;?>" class="accordion-title">
+																<h2><?php the_title();?></h2>
+															</a>
+														<div id="<?=$slug;?>" class="accordion-content" data-tab-content>
+															<div class="animation-container">
+																<?php the_content();?>
+															</div>
+														</div>
+													</li>
+												</ul>
+											</section>
+										<?php endwhile; wp_reset_postdata();?>
+									</div>
+								</div>
 							</div>
 						</div>
 					<?php endif;?>

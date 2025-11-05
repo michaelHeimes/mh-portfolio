@@ -1,3 +1,12 @@
+:root {
+  --brm: 1;
+}
+@supports (corner-shape: squircle) {
+  :root {
+	--brm: 2;
+  }
+}
+
 // Fonts
 
 // Colors

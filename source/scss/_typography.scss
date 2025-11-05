@@ -40,11 +40,22 @@ h2,
 		}
 	}
 	ul:not(.accordion) {
+		list-style: none;
 		li {
+			position: relative;
 			padding-left: .3em;
 			margin-bottom: .5em;
-			list-style-image: url(../../assets/images/bullet-green.svg);
 			line-height: 1.4;
+			&:before {
+				content: '';
+				position: absolute;
+				left: -1em;
+				top: 0.4em;
+				width: 0.5em;
+				height: 0.65em;
+				background: url('../../assets/images/bullet-green.svg') no-repeat center / contain;
+
+			}
 		}
 	}
 	.bg-green {
@@ -54,17 +65,18 @@ h2,
 			text-decoration-color: $color-lime-green;
 		}
 		ul {
+			list-style: none;
 			li {
-				list-style-image: url(../../assets/images/bullet-lime-green.svg);
+				&:before {
+					background: url('../../assets/images/bullet-lime-green.svg') no-repeat center / contain;
+				}
 			}
 		}
 		h2,
 		.h2,
 		h3,
 		.h3 {
-			text-decoration: underline;
 			text-decoration-color: $color-dark-kahki;
-			text-underline-offset: .1em;
 		}
 	}
 }
